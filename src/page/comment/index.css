@@ -155,3 +155,35 @@
     text-align: center;
     background: #eee;
 }
+.comment{
+
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-outside: 40px;
+
+
+}
+.comment-img{
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 20px;
+    float: left;
+
+}
+.user{
+    color: #bf2325;
+    font-size: 20px;
+}
+.time{
+    color: #999999;
+    font-size: 15px;
+    float:right;
+}
+.content{
+    color: #282c34;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 10px;
+}

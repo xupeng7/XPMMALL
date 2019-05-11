@@ -28,7 +28,8 @@ var page = {
         if(!this.data.productId){
             _mm.goHome();
         }
-        this.loadDetail();
+      /*  this.loadDetail();*/
+        this.loadComment();
     },
     bindEvent : function(){
         var _this = this;
@@ -64,7 +65,7 @@ var page = {
         });
     },
     // 加载商品详情的数据
-    loadDetail : function(){
+   /* loadDetail : function(){
         var _this       = this,
             html        = '',
             $pageWrap   = $('.page-wrap');
@@ -81,11 +82,39 @@ var page = {
         }, function(errMsg){
             $pageWrap.html('<p class="err-tip">此商品太淘气，找不到了</p>');
         });
+    },*/
+
+    // 加载商品评论
+    loadComment : function(){
+        var _this       = this,
+            html        = '',
+            $pageWrap   = $('.page-wrap');
+        // loading
+        $pageWrap.html('<div class="loading"></div>');
+        // 请求detail信息
+        _product.getProductComment(this.data.productId, function(res){
+           /* _this.filter2(res);*/
+            // 缓存住detail的数据
+            console.log("商品评论"+res.pageNum)
+            _this.data.detailInfo = res;
+            // render
+            html = _mm.renderHtml(templateIndex, res);
+            $pageWrap.html(html);
+        }, function(errMsg){
+            $pageWrap.html('<p class="err-tip">此商品太淘气，找不到了</p>');
+        });
     },
     // 数据匹配
     filter : function(data){
         data.subImages = data.subImages.split(',');
+    },
+
+    filter2 : function(data){
+        data.images = data.list.map(
+            function (comment) { return comment.images.split(','); }
+        )
     }
+
 };
 $(function(){
     page.init();

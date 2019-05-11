@@ -29,6 +29,19 @@ var _product = {
             success : resolve,
             error   : reject
         });
+    },
+
+
+    // 获取商品评论
+    getProductComment : function(productId, resolve, reject){
+        _mm.request({
+            url     : _mm.getServerUrl('/comment/list.do'),
+            data    : {
+                productId : productId
+            },
+            success : resolve,
+            error   : reject
+        });
     }
 }
 module.exports = _product;

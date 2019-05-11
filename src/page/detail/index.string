@@ -31,15 +31,16 @@
         <div class="p-info-item">
             <a class="btn cart-add">加入购物车</a>
         </div>
+        <div class="p-info-item">
+                   <a class="btn cart-add" href="./comment.html?productId={{id}}">查看评论</a>
+                </div>
     </div>
 </div>
 <div class="detail-wrap">
     <div class="detail-tab-con">
         <ul class="tab-list">
             <li class="tab-item active">详细描述</li>
-            <li class="tab-item no">
-            <a class="tab-item no" href="./comment.html?productId={{id}}">评论</a>
-            </li>
+
         </ul>
 
     </div>
